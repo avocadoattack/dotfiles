@@ -28,19 +28,39 @@ Plugins/tools referenced in .zshrc: zsh-autocomplete, zsh-autosuggestions, zsh-s
 
 1. Install Homebrew:
 
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 2. Install chezmoi and initialize from this repo:
 
-   brew install chezmoi
-   chezmoi init --apply git@github.com-avocadoattack:avocadoattack/dotfiles.git
+       brew install chezmoi
+       chezmoi init --apply git@github.com-avocadoattack:avocadoattack/dotfiles.git
 
 3. Install the tools referenced above via Homebrew (starship, eza, autojump, thefuck, etc.) and their respective zsh plugins.
 
 4. Restart your terminal — chezmoi apply will have already placed all config files in the right spots.
 
+## Maintaining this setup
+
+Editing a tracked text file (e.g. .zshrc):
+
+    chezmoi edit ~/.zshrc
+    chezmoi diff
+    chezmoi apply
+    git add <file>
+    git commit -m "description"
+    git push
+
+Editing a GUI-configured file (e.g. iTerm2 preferences):
+
+    # make the change in the app itself, then:
+    chezmoi re-add
+    chezmoi diff
+    git add <file>
+    git commit -m "description"
+    git push
+
 ## Notes
 
 - Some files use chezmoi's templating ({{ .chezmoi.homeDir }}) so paths resolve correctly regardless of the machine's username.
 - This repo is intentionally private. It's a personal environment snapshot, not a general-purpose starter kit.
-- SSH keys, shell history, and credential files are deliberately excluded.
+- SSH keys, shell history, and credential files are deliberately excluded — see .chezmoiignore for the full list and reasoning.
