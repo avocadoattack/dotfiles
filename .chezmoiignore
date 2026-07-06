@@ -1,0 +1,20 @@
+# Deliberately excluded from this dotfiles repo.
+# These are secrets, key material, or history/cache files —
+# none of them belong in version control, even privately.
+
+.ssh
+.gnupg
+.viminfo
+.zsh_history
+.lesshst
+.config/simplex
+
+# iTerm2 app-support data (not preferences) — may contain
+# session history or AI chat content, not configuration.
+Library/Application Support/iTerm2
+
+# Abandoned tool, no longer in use.
+.config/neofetch
+
+# No configuration value — just a random install ID.
+.config/asciinema
