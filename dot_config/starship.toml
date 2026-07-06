@@ -1,0 +1,89 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Change the default prompt format
+format = """
+$env_var\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$python\
+$cmd_duration\
+$character"""
+continuation_prompt = '▶▶ '
+
+# Shows an icon that should be included by zshrc script based on the distribution or os
+[env_var.STARSHIP_DISTRO]
+format = '[$env_value](bold white)'
+variable = "STARSHIP_DISTRO"
+disabled = false
+
+# Change the default prompt characters
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[](red)"
+vimcmd_symbol = "[❮](bold green)"
+
+# Shows the username
+[username]
+style_user = "bold underline #9BEDFF"
+style_root = "red"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+# Shows the hostname
+[hostname]
+ssh_only = false
+format = "on [$hostname](italic #F4F8A8) "
+disabled = false
+
+[sudo]
+style = 'bold green'
+symbol = '🌮'
+disabled = false
+
+[directory]
+truncation_length = 3
+truncation_symbol = "../"
+home_symbol = " 󰋜 "
+style = "#F09BD3"
+disabled = true
+
+# Changes the directory names to representative symbols
+[directory.substitutions]
+"Desktop" = " 󰇄 "
+"Documents" = " 󰈙 "
+"Downloads" = "  "
+"Music" = "  "
+"Pictures" = "  "
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-black"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "208"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
