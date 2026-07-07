@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal dotfiles managed with chezmoi (https://www.chezmoi.io/) — a portable terminal environment for macOS, built around zsh, Starship, and iTerm2.
+Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/). My portable terminal environment for macOS, built around zsh, Starship, and iTerm2.
 
 ## What's in here
 
@@ -16,13 +16,17 @@ Personal dotfiles managed with chezmoi (https://www.chezmoi.io/) — a portable 
 
 ## Tools this setup depends on
 
-- Shell: zsh
-- Terminal: iTerm2 (https://iterm2.com/)
-- Prompt: Starship (https://starship.rs/)
-- Package manager: Homebrew (https://brew.sh/)
-- Dotfile manager: chezmoi (https://www.chezmoi.io/)
-
-Plugins/tools referenced in .zshrc: zsh-autocomplete, zsh-autosuggestions, zsh-syntax-highlighting, autojump, eza, thefuck.
+- `Homebrew` — package manager (https://brew.sh/)
+- `chezmoi` — dotfile manager (https://www.chezmoi.io/)
+- `zsh` — shell
+- `iTerm2` — terminal (https://iterm2.com/)
+- `Starship` — prompt (https://starship.rs/)
+- `zsh-autocomplete` — tab-completion plugin
+- `zsh-autosuggestions` — inline command suggestions
+- `zsh-syntax-highlighting` — colors commands as you type
+- `autojump` — fast directory jumping
+- `eza` — modern `ls` replacement
+- `thefuck` — command-correction tool
 
 ## Setting up on a new machine
 
@@ -33,9 +37,9 @@ Plugins/tools referenced in .zshrc: zsh-autocomplete, zsh-autosuggestions, zsh-s
 2. Install chezmoi and initialize from this repo:
 
        brew install chezmoi
-       chezmoi init --apply git@github.com-avocadoattack:avocadoattack/dotfiles.git
+       chezmoi init --apply git@github.com:avocadoattack/dotfiles.git
 
-3. Install the tools referenced above via Homebrew (starship, eza, autojump, thefuck, etc.) and their respective zsh plugins.
+3. Install the tools listed above via Homebrew and their respective zsh plugins.
 
 4. Restart your terminal — chezmoi apply will have already placed all config files in the right spots.
 
@@ -43,6 +47,7 @@ Plugins/tools referenced in .zshrc: zsh-autocomplete, zsh-autosuggestions, zsh-s
 
 Editing a tracked text file (e.g. .zshrc):
 
+    cd ~/.local/share/chezmoi
     chezmoi edit ~/.zshrc
     chezmoi diff
     chezmoi apply
@@ -53,6 +58,7 @@ Editing a tracked text file (e.g. .zshrc):
 Editing a GUI-configured file (e.g. iTerm2 preferences):
 
     # make the change in the app itself, then:
+    cd ~/.local/share/chezmoi
     chezmoi re-add
     chezmoi diff
     git add <file>
@@ -62,5 +68,4 @@ Editing a GUI-configured file (e.g. iTerm2 preferences):
 ## Notes
 
 - Some files use chezmoi's templating ({{ .chezmoi.homeDir }}) so paths resolve correctly regardless of the machine's username.
-- This repo is intentionally private. It's a personal environment snapshot, not a general-purpose starter kit.
-- SSH keys, shell history, and credential files are deliberately excluded — see .chezmoiignore for the full list and reasoning.
+- SSH keys, GPG keys, shell history, and credential files were never added to this repo — see .chezmoiignore for the full list and reasoning.
