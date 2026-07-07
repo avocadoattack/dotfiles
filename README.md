@@ -17,17 +17,17 @@ My portable terminal environment for macOS, built around zsh, Starship, and iTer
 
 ## Tools this setup depends on
 
-- `Homebrew` ➞ Package manager (https://brew.sh/)
-- `chezmoi` ➞ dotfile manager (https://www.chezmoi.io/)
-- `zsh` ➞ Shell (https://zsh.sourceforge.io/)
-- `iTerm2` ➞ Terminal emulator (https://iterm2.com/)
-- `Starship` ➞ Prompt (https://starship.rs/)
-- `zsh-autocomplete` ➞ Tab-completion plugin (https://github.com/marlonrichert/zsh-autocomplete)
-- `zsh-autosuggestions` ➞ Inline command suggestions (https://github.com/zsh-users/zsh-autosuggestions)
-- `zsh-syntax-highlighting` ➞ Colors commands as you type (https://github.com/zsh-users/zsh-syntax-highlighting)
-- `autojump` ➞ Fast directory jumping (https://github.com/wting/autojump)
-- `eza` ➞ Modern `ls` replacement (https://github.com/eza-community/eza)
-- `thefuck` ➞ Command-correction tool (https://github.com/nvbn/thefuck)
+- `Homebrew` ➞ [Package manager](https://brew.sh/)
+- `chezmoi` ➞ [dotfile manager](https://www.chezmoi.io/)
+- `zsh` ➞ [Shell](https://zsh.sourceforge.io/)
+- `iTerm2` ➞ [Terminal emulator](https://iterm2.com/)
+- `Starship` ➞ [Prompt](https://starship.rs/)
+- `zsh-autocomplete` ➞ [Tab-completion plugin](https://github.com/marlonrichert/zsh-autocomplete)
+- `zsh-autosuggestions` ➞ [Inline command suggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- `zsh-syntax-highlighting` ➞ [Colors commands as you type](https://github.com/zsh-users/zsh-syntax-highlighting)
+- `autojump` ➞ [Fast directory jumping](https://github.com/wting/autojump)
+- `eza` ➞ [Modern `ls` replacement](https://github.com/eza-community/eza)
+- `thefuck` ➞ [Command-correction tool](https://github.com/nvbn/thefuck)
 
 ## Setting up on a new machine
 
