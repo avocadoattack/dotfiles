@@ -1,6 +1,7 @@
 # dotfiles
 
-Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/). My portable terminal environment for macOS, built around zsh, Starship, and iTerm2.
+My portable terminal environment for macOS, built around zsh, Starship, and iTerm2.
+> dotfiles managed with [chezmoi](https://www.chezmoi.io/). 
 
 ## What's in here
 
@@ -16,17 +17,17 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/). My portable t
 
 ## Tools this setup depends on
 
-- `Homebrew` — package manager (https://brew.sh/)
-- `chezmoi` — dotfile manager (https://www.chezmoi.io/)
-- `zsh` — shell
-- `iTerm2` — terminal (https://iterm2.com/)
-- `Starship` — prompt (https://starship.rs/)
-- `zsh-autocomplete` — tab-completion plugin
-- `zsh-autosuggestions` — inline command suggestions
-- `zsh-syntax-highlighting` — colors commands as you type
-- `autojump` — fast directory jumping
-- `eza` — modern `ls` replacement
-- `thefuck` — command-correction tool
+- `Homebrew` ➞ Package manager (https://brew.sh/)
+- `chezmoi` ➞ dotfile manager (https://www.chezmoi.io/)
+- `zsh` ➞ Shell (https://zsh.sourceforge.io/)
+- `iTerm2` ➞ Terminal emulator (https://iterm2.com/)
+- `Starship` ➞ Prompt (https://starship.rs/)
+- `zsh-autocomplete` ➞ Tab-completion plugin (https://github.com/marlonrichert/zsh-autocomplete)
+- `zsh-autosuggestions` ➞ Inline command suggestions (https://github.com/zsh-users/zsh-autosuggestions)
+- `zsh-syntax-highlighting` ➞ Colors commands as you type (https://github.com/zsh-users/zsh-syntax-highlighting)
+- `autojump` ➞ Fast directory jumping (https://github.com/wting/autojump)
+- `eza` ➞ Modern `ls` replacement (https://github.com/eza-community/eza)
+- `thefuck` ➞ Command-correction tool (https://github.com/nvbn/thefuck)
 
 ## Setting up on a new machine
 
@@ -41,7 +42,7 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/). My portable t
 
 3. Install the tools listed above via Homebrew and their respective zsh plugins.
 
-4. Restart your terminal — chezmoi apply will have already placed all config files in the right spots.
+4. Restart your terminal. chezmoi apply will have already placed all config files in the right spots.
 
 ## Maintaining this setup
 
