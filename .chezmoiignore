@@ -8,6 +8,7 @@
 .zsh_history
 .lesshst
 .config/simplex
+README.md
 
 # iTerm2 app-support data (not preferences) — may contain
 # session history or AI chat content, not configuration.
