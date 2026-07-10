@@ -1,21 +1,28 @@
 # Created by `pipx` on 2024-08-18 11:41:27
 export PATH="$PATH:{{ .chezmoi.homeDir }}/.local/bin"
 
-source /usr/local/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+[[ -f /usr/local/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]] && source /usr/local/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 alias ls='eza --icons -F -H --group-directories-first'
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Declare the variable
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
 
-eval $(thefuck --alias)
+# Lazy-load thefuck — defers the Python startup cost until you actually type `fuck`
+function init_thefuck() {
+  unalias fuck
+  unset -f init_thefuck
+  eval "$(thefuck --alias)"
+  fuck
+}
+alias fuck="init_thefuck"
 
 [[ -f ~/.config/zsh/starship.zsh ]] && source ~/.config/zsh/starship.zsh
 

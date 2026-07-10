@@ -11,13 +11,16 @@ $git_branch\
 $git_status\
 $git_state\
 $python\
+$jobs\
+$status\
+$sudo\
 $cmd_duration\
 $character"""
 continuation_prompt = '▶▶ '
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
-format = '[$env_value](bold white)'
+format = '[$env_value](bold #ff79c6)'
 variable = "STARSHIP_DISTRO"
 disabled = false
 
@@ -32,18 +35,19 @@ vimcmd_symbol = "[❮](bold green)"
 style_user = "bold underline #9BEDFF"
 style_root = "red"
 format = "[$user]($style) "
-disabled = false
+disabled = true
 show_always = true
 
 # Shows the hostname
 [hostname]
 ssh_only = false
 format = "on [$hostname](italic #F4F8A8) "
-disabled = false
+disabled = true
 
 [sudo]
+format = '[as $symbol]($style) '
 style = 'bold green'
-symbol = '🌮'
+symbol = '🥑'
 disabled = false
 
 [directory]
@@ -52,6 +56,11 @@ truncation_symbol = "../"
 home_symbol = " 󰋜 "
 style = "#F09BD3"
 disabled = true
+
+[status]
+format = '([$symbol$maybe_int]($style) )'
+style = 'bold #ff5555'
+disabled = false
 
 # Changes the directory names to representative symbols
 [directory.substitutions]
@@ -85,5 +94,5 @@ format = "[$duration]($style) "
 style = "208"
 
 [python]
-format = "[$virtualenv]($style) "
+format = "([$virtualenv]($style) )"
 style = "bright-black"
