@@ -52,6 +52,7 @@ Editing a tracked text file (e.g. .zshrc):
     chezmoi edit ~/.zshrc
     chezmoi diff
     chezmoi apply
+    git status              # confirm the real source filename before staging
     git add <file>
     git commit -m "description"
     git push
@@ -62,6 +63,7 @@ Editing a GUI-configured file (e.g. iTerm2 preferences):
     cd ~/.local/share/chezmoi
     chezmoi re-add
     chezmoi diff
+    git status              # confirm the real source filename before staging
     git add <file>
     git commit -m "description"
     git push
@@ -69,4 +71,5 @@ Editing a GUI-configured file (e.g. iTerm2 preferences):
 ## Notes
 
 - Some files use chezmoi's templating ({{ .chezmoi.homeDir }}) so paths resolve correctly regardless of the machine's username.
+- Source filenames often differ from live filenames due to chezmoi's naming convention (e.g., `.zshrc` → `dot_zshrc.tmpl`, and files under `.chezmoiignore`-adjacent private paths get a `private_` prefix). Run `git status` or `chezmoi source-path <live-file>` if `git add` can't find the file you expect.
 - SSH keys, GPG keys, shell history, and credential files were never added to this repo — see .chezmoiignore for the full list and reasoning.
