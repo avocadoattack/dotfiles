@@ -28,6 +28,7 @@ My portable terminal environment for macOS, built around zsh, Starship, and iTer
 - `autojump` ➞ [Fast directory jumping](https://github.com/wting/autojump)
 - `eza` ➞ [Modern `ls` replacement](https://github.com/eza-community/eza)
 - `thefuck` ➞ [Command-correction tool](https://github.com/nvbn/thefuck)
+- `Hack Nerd Font` ➞ [Font with the icons used by Starship and eza](https://www.nerdfonts.com/)
 
 ## Setting up on a new machine
 
@@ -35,14 +36,34 @@ My portable terminal environment for macOS, built around zsh, Starship, and iTer
 
        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-2. Install chezmoi and initialize from this repo:
+   On Apple Silicon, `brew` is not on your PATH yet in this first window. Run this once (after step 4, .zprofile handles it automatically):
 
-       brew install chezmoi
-       chezmoi init --apply git@github.com:avocadoattack/dotfiles.git
+       eval "$(/opt/homebrew/bin/brew shellenv)"
 
-3. Install the tools listed above via Homebrew and their respective zsh plugins.
+2. Install the command-line tools and zsh plugins:
 
-4. Restart your terminal. chezmoi apply will have already placed all config files in the right spots.
+       brew install chezmoi starship eza thefuck autojump zsh-autocomplete zsh-autosuggestions zsh-syntax-highlighting pipx
+
+   Also add `git-lfs` if you work with Git LFS repos (.gitconfig enables its filter).
+
+3. Install iTerm2 and the font, but don't open iTerm2 yet:
+
+       brew install --cask iterm2 font-hack-nerd-font
+
+4. Initialize and apply this repo. HTTPS works without an SSH key because the repo is public:
+
+       chezmoi init --apply https://github.com/avocadoattack/dotfiles.git
+
+   iTerm2 must not be running during this step, or it overwrites the applied preferences when it quits.
+
+5. Open iTerm2. New windows load Homebrew, the plugins, and Starship.
+
+6. Before committing from this machine, set up your SSH key, switch the remote to SSH, and confirm your git identity:
+
+       cd ~/.local/share/chezmoi
+       git remote set-url origin <your SSH remote URL>
+       git config user.name
+       git config user.email
 
 ## Maintaining this setup
 
